@@ -1,0 +1,10 @@
+﻿@page
+@model TempDataHelperExtension.Pages.ShowMessagesModel
+@{
+    ViewData["Title"] = "ShowMessages";
+}
+
+<h1>ShowMessages</h1>
+
+@{ string key = "infobox"; }
+<partial name="_InfoBoxTempData" model="key" />

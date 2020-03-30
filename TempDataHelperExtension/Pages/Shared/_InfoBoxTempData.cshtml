@@ -1,0 +1,22 @@
+﻿@model string 
+    @*modelem je klíč, který má být použit k zobrazení hlášek...*@
+@using Helpers
+
+@{ 
+    List<TempDataExtension.MessageData> messages = TempData.GetMessages(Model);
+}
+
+@if (messages != default)
+{
+    <div class="jumbotron">
+        @foreach (var message in messages)
+        {
+            <div class="alert alert-@message.MessageType alert-dismissible fade show" role="alert">
+                <strong>Info:</strong> @message.MessageText
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
+    </div>
+}
