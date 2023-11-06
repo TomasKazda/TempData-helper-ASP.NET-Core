@@ -3,7 +3,7 @@
 @using Helpers
 
 @{ 
-    List<TempDataExtension.MessageData> messages = TempData.GetMessages(Model);
+    List<TempDataExtension.MessageData> messages = TempData.GetMessages(this.Model);
 }
 
 @if (messages != default)
@@ -12,7 +12,7 @@
         @foreach (var message in messages)
         {
             <div class="alert alert-@message.MessageType alert-dismissible fade show" role="alert">
-                <strong>Info:</strong> @message.MessageText
+                <strong>Info:</strong> <span>@message.MessageText</span>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using System.Collections.Generic;
-using Utf8Json;
-using Utf8Json.Resolvers;
+using System.Text.Json;
 
 namespace Helpers
 {
@@ -9,8 +8,8 @@ namespace Helpers
     {
         public static void Set<T>(this ITempDataDictionary tempData, string key, T value)
         {
-            JsonSerializer.SetDefaultResolver(StandardResolver.AllowPrivateCamelCase);
-            tempData[key] = JsonSerializer.ToJsonString(value);
+            var serialized = JsonSerializer.Serialize(value);
+            tempData[key] = serialized;
         }
         public static T Get<T>(this ITempDataDictionary tempData, string key)
         {
@@ -42,8 +41,8 @@ namespace Helpers
         public struct MessageData
         {
 
-            public MessageType MessageType;
-            public string MessageText;
+            public MessageType MessageType { get; set; }
+            public string MessageText { get; set; }
 
             public MessageData(MessageType messageType, string messageText)
             {

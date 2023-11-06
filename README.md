@@ -1,6 +1,5 @@
 # TempData-helper-ASP.NET-Core
-TempData extension with Utf8Json
+TempData extension ASP.NET 7
 
 Nugets: 
-* Utf8Json
-* (Microsoft.AspNetCore.Session)
+* no dependencies
